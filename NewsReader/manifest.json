@@ -1,0 +1,38 @@
+{
+  "background": {
+    "scripts": [
+      "src/js/common.js",
+      "src/js/sites.js",
+      "src/js/background.js"
+    ]
+  },
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
+  "browser_action": {
+    "default_popup": "src/html/popup.html",
+    "default_icon": {
+      "128": "src/icons/bypass.png"
+    }
+  },
+  "description": "绕过付费墙，解锁外媒网站完整文章。注：这不是VPN，不能翻墙；建议先使用合规VPN，确保可以访问外媒网站，再使用本扩展程序。",
+  "homepage_url": "https://diyizazhi.com/",
+  "icons": {
+    "128": "src/icons/bypass.png"
+  },
+  "manifest_version": 2,
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3PRmcRnHFZwHUlCgoTAdBjc9nUjmJo8l8kvkl/OZV6biZFAGUQGdxF1xoGhRccWA7qfQrZdPwcM1VQoVS/1F+87XiutKTe/HNsTAFvOcVS0tjCSH6DOHpewkMUBZujwTIeo7UXUVmCPQ1UbVd6m8KmHYtSHYlaX0uXRcguWhLmO5hASxw4onvAD0uql/t/ntxsIATwn4hVApg0VZhy0QAbMany8/5ByKPa19mCQwsIdRkcpG+PNHTLWPDgeGoDL7S0DxIduraRhTlrDX/zy5ETu6NWq6r+/jRzmXAjx+vSDCU5Ps2YG8QwdCL4Zl+CNVdQrnqz4X1zfPFJ1FFmUSpwIDAQAB",
+  "name": "外刊阅读器",
+  "update_url": "https://diyizazhi.com/",
+  "short_name": "Bypass Paywall",
+  "options_ui": {
+    "chrome_style": false,
+    "page": "src/html/options.html"
+  },
+  "permissions": [
+    "cookies",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "version": "5.2.0"
+}

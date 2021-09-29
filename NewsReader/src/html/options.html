@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>外刊阅读器 Options</title>
+  <style>
+    html {
+      min-width: 350px;
+      max-width: 400px;
+    }
+    body {
+      min-width: 350px;
+      max-width: 400px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+    }
+
+    #bypass_sites label {
+      display: block;
+    }
+
+    #tabs {
+      display: none;
+      background-color: #ccc;
+    }
+
+    #tabs button {
+      flex-grow: 1;
+      background: #ddd;
+      text-shadow: none;
+      margin: 0;
+      padding: 0;
+      border: none;
+      padding-bottom: 3px;
+      border-bottom: 1px solid #666;
+      border-right: solid 1px #ccc;
+      border-radius: 0;
+    }
+
+    #tabs button:last-of-type {
+      border-right: none;
+    }
+
+    #tabs button.active {
+      background-color: #fff;
+      color: black;
+      padding-bottom: 0;
+      border-bottom: solid blue 4px;
+    }
+
+    .tab-cell {
+      height: 2em;
+    }
+
+    .pane {
+      height: 520px;
+      display: none;
+      flex-direction: column;
+    }
+
+    p {
+      margin: 0;
+      padding: .5em 0;
+      line-height: 1.3em;
+    }
+
+    #select-all {
+      border-top: solid 1px #aaa;
+      background: #eee;
+      padding: 4px 0;
+    }
+
+    #bypass_sites {
+      border-bottom: solid 1px #aaa;
+      flex-grow: 1;
+      overflow-y: auto;
+      padding-bottom: 4px;
+    }
+
+    input[type=checkbox] {
+      margin: 0 .5em;
+    }
+
+    .pane, #controls {
+      padding: 0 1em;
+    }
+
+    #controls {
+      align-self: flex-end;
+      padding: 1em;
+    }
+
+    .pane.active {
+      display: flex;
+    }
+
+    #custom textarea {
+      flex-grow: 1;
+    }
+
+    body.customSitesEnabled #tabs {
+      display: flex;
+    }
+
+    #status {
+      display: inline-block;
+      margin-right: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div id="tabs">
+    <button data-pane="sites" class="tab-cell">支持站点</button>
+    <button data-pane="custom" class="tab-cell">定制站点</button>
+  </div>
+
+  <div id="sites" class="pane">
+    <p>
+      选中的站点，其cookies会被清理，同时其流量推荐来源会被设置为Google。
+      如果您已使用账户登录某个站点，您应该在下面的列表中取消选中它，否则您每次访问该站点都会被注销。
+    </p>
+    <label id="select-all"><input checked type="checkbox"><em>Select all/none</em></label>
+    <div id='bypass_sites'></div>
+  </div>
+
+  <div id="custom" class="pane">
+    <p>
+      您可以在下面输入希望绕开付费墙的其它站点的域名（每行一个域名），它们的cookies会被删除，并会尝试以Googlebot访问它们。
+    </p>
+    <p>
+    <span style="color: #900; font-weight: bold">定制功能只按原样提供，可能对很多站点都没有效果。</span>
+    此处定制的站点如遇问题，请勿反馈！
+    </p>
+    <textarea id="custom_sites" placeholder="e.g.,&#10;campaignlive.co.uk&#10;cincinnati.com&#10;hk.appledaily.com&#10;" /></textarea>
+  </div>
+
+  <div id="controls">
+    <div id="status"></div>
+    <button id="save">保存</button>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/sites.js"></script>
+  <script src="../js/options.js"></script>
+</body>
+</html>
